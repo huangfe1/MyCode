@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.STYLE1 {
+	font-size: 12px;
+	color: #147233;
+}
+-->
+</style>
+<script type="text/javascript">
+  
+  function CurentTime()
+    { 
+        var now = new Date();
+       
+        var year = now.getFullYear();       //年
+        var month = now.getMonth() + 1;     //月
+        var day = now.getDate();            //日
+       
+        var hh = now.getHours();            //时
+        var mm = now.getMinutes();          //分
+
+        var week=now.getDay();
+       
+        var clock = year + "-";
+       
+        
+    
+       switch(week)
+       {
+         case 0: week = "星期日"; break;
+         case 1: week = "星期一"; break;
+         case 2: week = "星期二"; break;
+         case 3: week = "星期三"; break;
+         case 4: week = "星期四"; break;
+         case 5: week = "星期五"; break;
+         case 6: week = "星期六"; break;
+        }
+       
+        if(month < 10)
+            clock += "0";
+       
+        clock += month + "-";
+       
+        if(day < 10)
+            clock += "0";
+           
+        clock += day + " ";
+
+        clock += week + " ";
+       
+        if(hh < 10)
+            clock += "0";
+           
+        clock += hh + ":";
+        if (mm < 10) clock += '0'; 
+        clock += mm; 
+        document.write(clock); 
+
+    } 
+</script>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="23" background="../../images/main_25.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="181" height="23" background="../../images/main_24.gif">&nbsp;</td>
+        <td><div align="right" class="STYLE1">现在时间是：<script type="text/javascript">CurentTime()</script></div></td>
+        <td width="25"><img src="../../images/main_27.gif" width="25" height="23" /></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

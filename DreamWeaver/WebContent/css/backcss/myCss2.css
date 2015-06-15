@@ -1,0 +1,89 @@
+                     .text{
+                     border: 1px solid #ccc;
+                     padding: 2px;
+                     font-size: 1.2em;
+                     color: #000000;
+                     background-color: #eeeeee;
+                     width: 309px;
+                     }
+                     .text2{
+                     border: 1px solid #ccc;
+                     padding: 2px;
+                     font-size: 1.2em;
+                     color: #000000;
+                     background-color: #ffffff;
+                     width: 100px;
+                     }
+                      .text3{
+                     border: 1px solid #ccc;
+                     padding: 2px;
+                     font-size: 1.2em;
+                     color: #000000;
+                     background-color: #eeeeee;
+                     height: 30px;
+                     }
+                     .text4{
+                     border: 1px solid #ccc;
+                     padding: 2px;
+                     font-size: 1.2em;
+                     color: #000000;
+                     background-color: #eeeeee;
+                     width: 100px;
+                     }
+                     .text6{
+                     border: 1px solid #ccc;
+                     padding: 2px;
+                     font-size: 1.2em;
+                     color: #000000;
+                     background-color: #eeeeee;
+                     width: 309px;
+                     }
+                      .text5{
+                     border: 1px solid #ccc;
+                     padding: 2px;
+                     font-size: 1.2em;
+                     color: #000000;
+                     background-color: #eeeeee;
+                     width: 300px;
+                     }
+                     .font1{
+                     font-size: 18px;
+                     font-family:"FangSong";
+                     font-weight:bolder;
+                     }
+                     .font2{
+                     font-size:15px;
+                     color: red;
+                     
+                     }
+                     .font3{
+                     font-size:20px;
+                     color: red;
+                     font-weight:bolder;
+                     }
+                     .btn {
+                     BORDER-RIGHT: #7b9ebd 1px solid; 
+                     PADDING-RIGHT: 2px; 
+                     BORDER-TOP: #7b9ebd 1px solid; 
+                     width: 100px;
+                     PADDING-LEFT: 2px; 
+                     FONT-SIZE: 16px; 
+                     FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); 
+                     BORDER-LEFT: #7b9ebd 1px solid; 
+                     CURSOR: hand; 
+                     COLOR: #000000; 
+                     PADDING-TOP: 2px; 
+                     BORDER-BOTTOM: #7b9ebd 1px solid
+                     }
+                     .background1{
+                            background-repeat: no-repeat;
+                            background-image: url("../../images/bg11.jpg");
+                            background-size:cover;
+
+                    }
+                    .background2{
+                            background-repeat: no-repeat;
+                            background-image: url("../../images/tablebg.jpg");
+                            background-size:cover;
+
+                    }

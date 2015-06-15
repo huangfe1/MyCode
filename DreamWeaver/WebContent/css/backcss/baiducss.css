@@ -1,0 +1,48 @@
+.background1{
+   background-color: #ffffff;
+}
+a {
+	color: black;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: ËÎÌו;} 
+
+a:hover {color: blue;} 
+ .text2{
+                     border: 1px solid #ccc;
+                     padding: 2px;
+                     padding-top: 5px;
+                     font-size: 1.2em;
+                     color: #000000;
+                     background-color: #ffffff;
+                     height: 37px;
+                     width: 50%;
+
+                     }
+
+               .submitstyle{
+                border-top:0px ;
+                border-left:0px ;
+                border-right:0px ;
+                border-bottom: 0px;
+				padding-bottom:1%;
+          	width: 101px;
+          	height: 37px;
+          	background: url("../../images/baiduclick.png") left top no-repeat;
+          }
+          .STYLE1 {
+  font-size: 15px;
+  font-family:"FangSong";
+
+}
+.STYLE2 {
+  font-size: 20px;
+  font-family:"FangSong";
+}
+.STYLE3 {
+	font-size: 18px;
+	color: #1F4A65;
+	font-weight: bold;
+  font-family:"FangSong";
+}
+          

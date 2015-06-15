@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//WebContent/hy.jsp=UTF-8
+encoding//src/cn/hf/action=GBK
+encoding//src/cn/hf/action/AddGoodsAction.java=GBK
+encoding//src/cn/hf/action/AddUserAction.java=GBK
+encoding//src/cn/hf/action/GoodsAndUserAction.java=UTF-8
+encoding//src/cn/hf/action/LoginAction.java=UTF-8
+encoding//src/cn/hf/bean/KuCun.java=UTF-8
+encoding//src/cn/hf/bean/User.java=GBK
+encoding//src/cn/hf/dao=GBK
+encoding//src/cn/hf/dao/OutDao.java=UTF-8
+encoding//src/cn/hf/db=GBK
+encoding/<project>=UTF-8

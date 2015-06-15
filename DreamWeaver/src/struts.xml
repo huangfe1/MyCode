@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 调用函数 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 多方法名 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+    <package name="default" namespace="/" extends="json-default">
+    <!-- 默认的首页 -->
+    <default-action-ref name="index" />
+        <global-results>  
+        <result name="toLogin">/index.jsp</result>  
+    </global-results>
+    <action name="yzm" class="cn.hf.action.YzmAction">
+        
+    </action>
+         <action name="checkkc" class="cn.hf.action.CheckKcAction">
+    <result >/WEB-INF/view/CheckKc.jsp</result>
+    </action>
+     <action name="checklevel" class="cn.hf.action.CheckLevelAction">
+    <result >/WEB-INF/view/checkLevel.jsp</result>
+    </action>
+        <action name="applyinfo" class="cn.hf.action.ApplyInfoAction">
+    <result >/WEB-INF/view/applyInfo.jsp</result>
+    </action>
+     <action name="mykc" class="cn.hf.action.MyKcAction">
+    <result >/WEB-INF/view/myKc.jsp</result>
+    </action>
+     <action name="deleteout" class="cn.hf.action.DeleteOutAction">
+    <result type="chain" >myout</result>
+    </action>
+       <action name="deleteapply" class="cn.hf.action.DeleteApplyAction">
+	    <result type="redirectAction" >
+    <param name="actionName">myapply</param>
+    <param name="namespace">/</param>
+    <param name="type">0</param>
+    </result>
+    </action>
+     <action name="myapply" class="cn.hf.action.MyApplyAction">
+    <result >/WEB-INF/view/myApply.jsp</result>
+    </action>
+      <action name="enterapply" class="cn.hf.action.EnterApplyAction">
+     <result type="redirectAction" >
+    <param name="actionName">mygoods</param>
+    <param name="namespace">/</param>
+    <param name="type">1</param>
+    </result>
+   <result name="error"  >/WEB-INF/view/wrongGoods.jsp</result>
+   <result name="countinfo">countInfo.jsp</result>
+    </action>
+     <action name="myout" class="cn.hf.action.MyOutAction">
+    <result >/WEB-INF/view/myOut.jsp</result>
+    </action>
+    <action name="outgoods" class="cn.hf.action.OutGoodsAction">
+    <result type="redirectAction">myout</result>
+    <result name="wrong" type="chain">outGoodsjsp</result>
+    </action>
+    <action name="addgoods" class="cn.hf.action.AddGoodsAction">
+    <result type="redirectAction">myout</result>
+    <result name="wrong" type="chain">addGoodsjsp</result>
+    </action>
+    <action name="applygoods" class="cn.hf.action.ApplyGoodsAction">
+     <result type="redirectAction" >
+    <param name="actionName">myapply</param>
+    <param name="namespace">/</param>
+    <param name="type">0</param>
+    </result>
+    <result name="error" type="chain">applyGoodsjsp</result>
+    </action>
+    <action name="imageaction" class="cn.hf.action.ImageAction">
+    <result  type="stream">
+    <param name="contentDisposition">
+		filename="image.jpg"
+    </param>
+    <param name="bufferSize">8192</param> 
+    </result>
+    </action>
+     <!-- <action name="pdimage" class="cn.hf.action.pdImageAction">
+    <result  type="stream">
+    <param name="contentDisposition">
+		attachment;filename="image.jpg"
+    </param>
+    <param name="contentType">image/jpg</param>
+    <param name="bufferSize">8192</param> 
+    </result>
+    </action>
+     -->
+     <action name="conName" class="cn.hf.action.ConNameAction">
+    <result type="chain"  >
+    <param name="actionName">conName</param>
+    <param name="method">check</param>
+    </result>
+    <result name="check" >/WEB-INF/view/AllNames.jsp</result>
+    <result name="add">/WEB-INF/view/addNames.jsp</result>
+     <result name="change">/WEB-INF/view/changeNames.jsp</result>
+    </action>
+     <action name="activityUser" class="cn.hf.action.ActivityUserAction">
+    <result type="chain">checkAllUser</result>
+    </action>
+     <action name="deleteUser" class="cn.hf.action.DeleteUserAction">
+    <result type="chain">checkUser</result>
+    </action>
+     <action name="changePaw" class="cn.hf.action.ChangePawAction">
+    <result name="success">success.jsp</result>
+    <result name="error">/WEB-INF/view/changePaw.jsp</result>
+    </action>
+      <action name="changeUser" class="cn.hf.action.ChangeUserAction">
+    <result >
+    <param name="location">/pcImage.jsp</param>
+    </result>
+    <result type="chain" name="error">
+    changeUserjsp
+    </result>
+    </action>
+     <action name="goodsUser" class="cn.hf.action.GoodsAndUserAction">
+    <result>
+    <param name="location">/Search.jsp</param>  
+    </result>
+    <result name="phone">phone.jsp</result>
+    </action>
+     <action name="lookGoods" class="cn.hf.action.LookGoodsAction">
+    <result >/WEB-INF/view/lookGoods.jsp</result>
+    </action>
+    <action name="backGoods" class="cn.hf.action.BackGoodsAction">
+    <result type="chain">
+    <param name="actionName">mygoods</param>
+    <param name="type">0</param>
+    </result>
+    <result name="error">/WEB-INF/view/wrongGoods.jsp</result>
+    </action>
+     <action name="mygoods" class="cn.hf.action.MyGoodsAction">
+    <result name="success"  >/WEB-INF/view/myGoods.jsp</result>
+    </action>
+     <action name="entergoods" class="cn.hf.action.EnterGoodsAction">
+    <result type="redirectAction" >
+    <param name="actionName">mygoods</param>
+    <param name="namespace">/</param>
+    <param name="type">1</param>
+    </result>
+    <result name="error"  >/WEB-INF/view/wrongGoods.jsp</result>
+   <result type="chain" name="dlwrong">enterGoodsjsp</result>
+    </action>
+     <action name="checkUser" class="cn.hf.action.checkUserAction">
+    <result name="success"  >/WEB-INF/view/checkUser.jsp</result>
+    </action>
+      <action name="checkAllUser" class="cn.hf.action.checkAllUserAction">
+    <result name="success"  >/WEB-INF/view/checkAllUser.jsp</result>
+    </action>
+    <action name="addUser" class="cn.hf.action.AddUserAction">
+    <result name="success"  >/pcImage.jsp</result>
+    <result name="error" type="chain">addUserjsp</result>
+    </action>
+    <action name="login" class="cn.hf.action.LoginAction">
+    <result name="success"   type="redirectAction" >mainjsp</result>
+    <result name="error" >/WEB-INF/view/Login.jsp</result>
+    </action>
+    <action name="*jsp" class="cn.hf.action.ResultAction">
+    <result name="success" >/WEB-INF/view/{1}.jsp</result>
+    <result name="error" >/WEB-INF/view/Login.jsp</result>
+     <result name="myapply"   type="redirectAction" > 
+    <param name="actionName">myapply</param>
+    <param name="namespace">/</param>
+    <param name="type">1</param>
+    <param name="msg">${msg}</param>
+    </result>
+    <result name="countInfo" >/countInfo.jsp</result>
+    </action>
+    <action name="LogOut" class="cn.hf.action.LogOutAction">
+    <result>/WEB-INF/view/Login.jsp</result>
+    </action>
+    <action name="index" class="cn.hf.action.IndexAction">
+    <result name="success" type="chain" >login</result>
+    <result name="error">/WEB-INF/view/Login.jsp</result>
+    </action>
+    <action name="ajax"  class="cn.hf.action.AjaxAction">
+    <result name="success" type="json" ></result>
+    </action>
+    </package>
+</struts>
+<!-- ********************************************************** -->
+      <!--<default-action-ref name="index" /> -->
+      <!--
+      	  <global-results>
+            <result name="error">/error.jsp</result>
+      	  </global-results>
+      	   <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+       -->
+       <!--  <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action> -->

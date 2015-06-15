@@ -1,0 +1,90 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@taglib prefix="s" uri="/struts-tags" %>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>无标题文档</title>
+<script>
+function t(path){
+	var r = Math.random();
+	//跳转页面
+	window.parent.frames[1].location.href=path+"noCache="+r;
+}
+</script>
+<style type="text/css">
+html { overflow-x:hidden; }
+<!--
+body{margin-left:4px}
+.wel{font-family: "Arial","SimSun","黑体","宋体",sans-serif;}
+.left1{ width:160px; height:80px;}
+.left_te1{ width:6px; height:80px; float:left;}
+.left_te2{ width:148px; height:80px; float:left; background:url(images/left1_05.jpg) repeat-x;}
+.left_te3{ width:6px; height:80px; float:right;}
+.left2{ width:160px; height:auto; margin-top:7px;}
+.left2_1{ width:160px; height:6px;}
+.left2_2{ width:160px; height: auto; background-color:#fffaef; border-left:#ffc287 1px solid; border-right:#ffc287 1px solid;}
+.left2_2 ul{ list-style:none; padding:0px; margin:0px;}
+.left2_2 li span{ font-size:13px; font-weight:bold; background:url(images/nv.jpg) no-repeat center; display:block; width:160px; height:31px; text-align:center; line-height:34px; color:#FFFFFF;}
+.left2_2 a, .left2_2 a:visited{ color:#fa9a54; text-decoration:none; width:160px; display:block; line-height:28px; text-indent:50px; margin:4px 0;}
+.left2_2 a:hover{ background:url(images/nv1.jpg) no-repeat center; color:#ff4200;}
+-->
+</style></head>
+
+<body>
+<div class="left1">
+ <div class="left_te1"><img src="images/left1_03.jpg"></div>
+	   <div class="left_te2" align="center">
+	   <!--这里添加标语-->
+	   </br>
+	   <span class="wel">尊敬的${user.username}用户:</span>
+	    </br>
+		</br>
+	    <span >衷心感谢您的支持!</span>
+       </div>
+	<div class="left_te3"><img src="images/left1_07.jpg"></div>
+</div>
+<div class="left2">
+	  <div class="left2_1"><img src="images/left2_01.jpg"></div>
+	  <div class="left2_2">
+	   <ul>
+		   <li><span>发货管理</span></li>
+		   <li><a href="enterGoodsjsp?type=0" target="I2">串号录入</a></li>
+		   <li><a href="enterGoodsjsp?type=1" target="I2">单号录入</a></li>
+		 </ul> 
+		 <ul>
+		   <li><span>录入查询</span></li>
+		   <li><a  href="#" onclick="t('mygoods?type=0&')">我的库存</a></li>
+		   <li><a href="#" onclick="t('mygoods?type=1&')">录入记录</a></li>
+		 </ul>
+		 <!-- 公司用户 -->
+		 <s:if test="#session.user.type==0">
+		  <ul>
+		   <li><span>产品类型</span></li>
+		   <li><a href="#" onclick="t('conName!check?')" >查看类型</a></li>		   
+           <li><a href="addNamesjsp" target="I2">增加类型</a></li>
+		 </ul>
+		    </s:if>
+		  	 <ul>
+		  	   <li><span>用户管理</span></li>
+		  	   <!-- 公司用户 -->
+		  	 <s:if test="#session.user.type==0">
+		  	   <li><a href="#" onclick="t('checkUser?')">我的用户</a></li>
+		  	   <li><a href="#" onclick="t('checkAllUser?')" >所有用户</a></li>
+		       <li><a href="addUserjsp" target="I2">增加用户</a></li>
+		        <li><a href="changePawjsp" target="I2">修改密码</a></li>
+		 	 </s:if>
+		 	  <!-- 代理用户 -->
+		 	 <s:else>
+		 	  <li><a href="#" onclick="t('checkUser?')">我的用户</a></li>
+		 	  <li><a href="addUserjsp" target="I2">增加用户</a></li>
+		 	  <li><span>账号管理</span></li>
+		      <li><a href="pcImage.jsp?code=${session.user.code}" target="I2">我的证书</a></li>
+		      <li><a href="changePawjsp" target="I2">修改密码</a></li>
+		 	 </s:else>
+		 </ul>
+	  </div>
+	  <div class="left2_1"><img src="images/left2_02.jpg"></div>
+	</div>
+</body>
+</html>

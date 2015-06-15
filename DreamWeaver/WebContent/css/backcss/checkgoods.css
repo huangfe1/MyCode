@@ -1,0 +1,108 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+  width: 100%;
+}
+
+.STYLE1 {
+  font-size: 15px;
+  font-family:"FangSong";
+
+}
+.STYLE2 {
+  font-size: 20px;
+  font-family:"FangSong";
+}
+.STYLE3 {
+	font-size: 18px;
+	color: #1F4A65;
+	font-weight: bold;
+  font-family:"FangSong";
+}
+
+  .btn{
+                    /* BORDER-RIGHT: #7b9ebd 1px solid; 
+                     PADDING-RIGHT: 2px; 
+                     BORDER-TOP: #7b9ebd 1px solid; 
+                     width: 50px;
+                     PADDING-LEFT: 2px; 
+                     FONT-SIZE: 12px; 
+                     FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); 
+                     BORDER-LEFT: #7b9ebd 1px solid; 
+                     CURSOR: hand; 
+                     COLOR: #000000; 
+                     PADDING-TOP: 2px; 
+                     BORDER-BOTTOM: #7b9ebd 1px solid;*/
+                     /*background: url("../../images/btnbg.jpg");*/
+                     height: 23px;
+                     width: 60px;
+                     FONT-SIZE: 12px; 
+                     background-color:transparent;         
+                     background-image:url("../../images/btnbg1.png");
+                     
+                      border:none;
+          }
+          .btn1{
+              height: 18px;
+                     width: 46px;
+                     FONT-SIZE: 12px; 
+                     background-color:transparent;         
+                     background-image:url("../../images/first.gif");
+                      border:none;
+          }
+          .btn2{
+              height: 18px;
+                     width: 56px;
+                     FONT-SIZE: 12px; 
+                     background-color:transparent;         
+                     background-image:url("../../images/back.gif");
+                      border:none;
+          }
+          .btn3{
+              height: 18px;
+                     width: 56px;
+                     FONT-SIZE: 12px; 
+                     background-color:transparent;         
+                     background-image:url("../../images/next.gif");
+                      border:none;
+          }
+          .btn4{
+              height: 18px;
+                     width: 46px;
+                     FONT-SIZE: 12px; 
+                     background-color:transparent;         
+                     background-image:url("../../images/last.gif");
+                      border:none;
+          }
+          .btn5{
+              height: 14px;
+                     width: 14px;
+                     FONT-SIZE: 12px; 
+                     background-color:transparent;         
+                     background-image:url("../../images/g_page.gif");
+                      border:none;
+          }
+
+a:link {
+	font-size: 15px;
+	color: #06482a;
+	text-decoration: none;
+
+}
+a:visited {
+	font-size: 15px;
+	color: #06482a;
+	text-decoration: none;
+}
+a:hover {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: underline;
+}
+a:active {
+	font-size: 15px;
+	color: #FF0000;
+	text-decoration: none;
+}

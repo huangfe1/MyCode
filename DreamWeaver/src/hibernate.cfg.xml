@@ -1,0 +1,34 @@
+<hibernate-configuration>
+    <session-factory>
+    <!-- Database connection settings -->
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost/huangfeijava</property>
+    <property name="connection.username">roothxf</property>
+    <property name="connection.password">huangfei08</property>
+   	<!-- 最大和最小连接数目 -->
+		<property name="hibernate.c3p0.max_size">200</property>
+		<property name="hibernate.c3p0.min_size">30</property>
+		<!-- 连接对象多长时间应该被销毁 -->
+		<property name="hibernate.c3p0.timeout">5000</property>
+		<!-- 最大缓存多少个statement -->
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<!-- 每隔多长时间检测 -->
+		<property name="hibernate.c3p0.idle_test_period">5000</property>
+		<!-- 连接池连接用完时，C3P0一次获取的新的连接数 -->
+		<property name="hibernate.c3p0.acquire_increment">5</property>
+		<!-- 每次都验证连接是否可用 -->
+		<property name="hibernate.c3p0.validate">true</property>
+		<!-- 指定数据库的方言 -->
+		<property name="dialect">
+			org.hibernate.dialect.MySQLInnoDBDialect
+		</property>
+		<!-- 根据需要自动创建数据表 -->
+		<property name="hbm2ddl.auto">update</property>
+		<!-- 显示生成的sql -->
+		<property name="show_sql">true</property>
+		<!-- 格式化输出sql -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- 罗列所有的映射文件 -->
+		<mapping resource="com/example/modal/Admin.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

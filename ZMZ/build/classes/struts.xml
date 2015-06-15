@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 调用函数 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<!-- 多方法名 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+    <package name="default" namespace="/"  extends="struts-default">
+        <interceptors>
+            <!-- 申明拦截器 -->
+            <interceptor name="myIntercept" class="zmz.hf.common.MyIntercept">
+            </interceptor>
+          <!-- 封装一个默认拦截器的栈 -->
+          <interceptor-stack name="myDefaultStack">
+              <interceptor-ref name="myIntercept" ></interceptor-ref>
+               <interceptor-ref name="defaultStack"></interceptor-ref>
+          </interceptor-stack>
+       </interceptors>
+       <!-- 为这个类设置默认拦截器栈 -->
+       <default-interceptor-ref name="myDefaultStack"/>
+    <!-- 全局Result -->
+    <global-results>  
+    <result name="login">/WEB-INF/login.jsp</result>  
+    <result name="index" type="chain">index</result>  
+    <result name="ban">/ban.jsp</result> 
+     <result name="info">/info.jsp</result> 
+        <!-- 动态返回地址 -->
+          <result name="view" >${next}</result>     
+        <result name="dispatcher" >/WEB-INF/${next}</result>     
+         <result name="chain" type="chain">${next}</result>
+           <result name="redirect" type="redirect">/WEB-INF/${next}</result>
+            <result name="redirectAction" type="redirectAction">${next}</result>               
+    </global-results>
+    <!-- 首页 -->
+    <action name="index"  class="zmz.hf.action.IndexAction" >
+	<result>/WEB-INF/main.jsp</result>     
+    </action>
+    <!-- 过滤 -->
+     <action name="*jsp"  class="zmz.hf.action.FilterAction" >
+	<result>/WEB-INF/{1}.jsp</result> 
+    </action>
+    <!--用户操作-->
+    <action name="user_*" class="zmz.hf.action.UserAction" method="{1}">
+        <!-- <result name="login_success">/WEB-INF/main.jsp</result> 
+        <result name="login_error">/WEB-INF/login.jsp</result>   -->      
+    </action>
+    <!--生成证书 -->
+    <action name="zsimage" class="zmz.hf.action.ZsImageAction">
+     		<result type="stream">
+     			<param name="contentDisposition">
+				filename="image.jpg"
+   			   </param>
+    			<param name="bufferSize">
+        		8192
+    			</param> 
+        </result>
+    </action>
+    </package>
+</struts>

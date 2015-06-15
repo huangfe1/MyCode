@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/center.jsp=gbk
+encoding//src/config.properties=gbk
+encoding//src/zmz/hf/action/IndexAction.java=gbk
+encoding//src/zmz/hf/action/InstalAction.java=UTF-8
+encoding//src/zmz/hf/util/ConfigUtil.java=gbk
+encoding//src/zmz/zwq/dao/Delete.java=UTF-8
+encoding//src/zmz/zwq/dao/Insert.java=UTF-8
+encoding//src/zmz/zwq/dao/Update.java=UTF-8
+encoding//src/zmz/zwq/modal/Admin.java=UTF-8
+encoding//src/zmz/zwq/modal/Agent.java=UTF-8
+encoding//src/zmz/zwq/modal/Function.java=UTF-8
+encoding//src/zmz/zwq/modal/FunctionName.java=UTF-8
+encoding//src/zmz/zwq/modal/Level.java=UTF-8
+encoding//src/zmz/zwq/modal/Role.java=UTF-8
+encoding//src/zmz/zwq/modal/User.java=UTF-8

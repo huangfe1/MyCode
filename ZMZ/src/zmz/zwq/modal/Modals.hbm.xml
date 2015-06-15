@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="zmz.zwq.modal">
+	
+	<class name="FunctionName" table="zmz_functionname">
+		<id name="funNameId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="funName" type="java.lang.String">
+			<column name="funName" sql-type="char(20)"></column>
+		</property>
+	</class>
+	<class name="Function" table="zmz_function">
+		<id name="funId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="funName" type="java.lang.String">
+			<column name="funName" sql-type="char(20)"></column>
+		</property>
+		<many-to-one name="functionName" class="FunctionName" column="funNameId">
+		</many-to-one>
+		<many-to-one name="funRole" class="Role" column="roleId"></many-to-one>
+	</class>
+	<class name="Role" table="zmz_role">
+		<id name="roleId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="roleName" unique="true" type="java.lang.String">
+			<column name="roleName" sql-type="char(20)"></column>
+		</property>
+		<map name="roleFun" table="zmz_function" cascade="all">  
+    		<key column="roleId"></key>  
+    		<index column="funName" type="java.lang.String"></index>  
+        	<one-to-many class="Function"/> 
+		</map>  
+	</class>
+	<class name="Level" table="zmz_level">
+		<id name="levelId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="levelName" type="java.lang.String">
+			<column name="levelName" sql-type="char(20)"></column>
+		</property>
+	</class>
+	<class name="User" table="zmz_user" abstract="true">
+		<id name="userId">
+			<generator class="hilo"></generator>
+		</id>
+		<property name="userName" type="java.lang.String">
+			<column name="userName" sql-type="char(20)"></column>
+		</property>
+		<property name="userPassword" type="java.lang.String">
+			<column name="userPassword" sql-type="char(20)"></column>
+		</property>
+		<property name="userStatus" type="int"></property>	
+	</class>
+	<union-subclass name="Agent" table="zmz_agent" extends="User">
+		<property name="agentCode" unique="true" type="java.lang.String">
+			<column name="agentCode" sql-type="char(20)"></column>
+		</property>
+		<property name="agentUpId" type="int"></property>
+		<property name="agentPhone" type="java.lang.String">
+			<column name="agentPhone" sql-type="char(12)"></column>
+		</property>
+		<property name="agentWechat" type="java.lang.String">
+			<column name="agentWechat" sql-type="char(20)"></column>
+		</property>
+		<property name="agentIdcard" type="java.lang.String">
+			<column name="agentIdcard" sql-type="char(20)"></column>
+		</property>
+		<property name="agentInfo" type="java.lang.String">
+			<column name="agentInfo" sql-type="char(30)"></column>
+		</property>
+		<property name="agentTime" type="java.lang.String">
+			<column name="agentTime" sql-type="date"></column>
+		</property>
+		<many-to-one name="agentLevel" class="Level" column="levelId" unique="true"></many-to-one>
+	</union-subclass>
+	<union-subclass name="Admin" table="zmz_admin" extends="User">
+		<many-to-one name="adminRole" class="Role" column="roleId"></many-to-one>
+	</union-subclass>
+	<class name="Goods" table="zmz_goods">
+		<id name="goodsId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="goodsCode" type="int"></property>
+		<property name="goodsType" type="int"></property>
+		<property name="goodsBelong" type="int"></property>
+	</class>
+	<class name="GoodsType" table="zmz_goodstype">
+		<id name="goodsTypeId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="goodsName" type="java.lang.String">
+			<column name="goodsName" sql-type="char(20)"></column>
+		</property>
+		<property name="goodsTime" type="java.lang.String">
+			<column name="goodsTime" sql-type="date"></column>
+		</property>
+	</class>
+	<class name="Storage" table="zmz_storage">
+		<composite-id>
+			<key-property name="storUserId" type="int"></key-property>
+			<key-property name="storGoodsName" type="java.lang.String">
+				<column name="storGoodsName" sql-type="char(20)"></column>
+			</key-property>
+		</composite-id>
+		<property name="storNum" type="int"></property>
+	</class>
+	<class name="Send" table="zmz_send">
+		<id name="sendId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="sendUserId" type="int"></property>
+		<property name="applyUserId" type="int"></property>
+		<property name="sendGoodsName" type="java.lang.String">
+			<column name="sendGoodsName" sql-type="char(20)"></column>
+		</property>
+		<property name="sendNum" type="int"></property>
+		<property name="sendTime" type="java.lang.String">
+			<column name="sendTime" sql-type="date"></column>
+		</property>
+		<property name="sendUserStor" type="int"></property>
+		<property name="recUserStor" type="int"></property>
+		<property name="sendType" type="int"></property>
+	</class>
+	<class name="Apply" table="zmz_apply">
+		<id name="applyId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="logisticsId" type="int"></property>
+		<property name="applyUserId" type="int"></property>
+		<property name="sendUserId" type="int"></property>
+		<property name="applyAddress" type="java.lang.String">
+			<column name="applyAddress" sql-type="char(50)"></column>
+		</property>
+		<property name="applyPhone" type="java.lang.String">
+			<column name="applyPhone" sql-type="char(12)"></column>
+		</property>
+		<property name="applyTime" type="java.lang.String">
+			<column name="applyTime" sql-type="date"></column>
+		</property>
+		<property name="applyGoodsName" type="java.lang.String">
+			<column name="applyGoodsName" sql-type="char(20)"></column>
+		</property>
+		<property name="applyNum" type="int"></property>
+		<property name="applyStatus" type="int"></property>
+	</class>
+	<class name="SendRecord" table="zmz_sendrecord">
+		<id name="recId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="sendUserId" type="int"></property>
+		<property name="applyUserId" type="int"></property>
+		<property name="goodsId" type="int"></property>
+		<property name="recTime" type="java.lang.String">
+			<column name="recTime" sql-type="date"></column>
+		</property>
+	</class>
+	<class name="Fund" table="zmz_fund">
+		<id name="fundId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="fundUserId" type="int"></property>
+		<property name="fundNum" type="int"></property>
+	</class>
+</hibernate-mapping>
